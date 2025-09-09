@@ -1,0 +1,17 @@
+network_rules:
+  - name: "ICMP traffic detected"
+    condition: "proto == 1"
+    level: "WARNING"
+
+  - name: "HTTP traffic detected"
+    condition: "proto == 6 and dport == 80"
+    level: "WARNING"
+
+system_rules:
+  - name: "Windows failed login (EventID 4625)"
+    condition: "event_id == 4625"
+    level: "CRITICAL"
+
+  - name: "Linux failed password string"
+    condition: "'failed password' in message.lower()"
+    level: "CRITICAL"

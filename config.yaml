@@ -1,0 +1,49 @@
+log_level: INFO
+data_dir: ./data
+sqlite_path: ./data/events.db
+
+system_sample_seconds: 5
+file_watch_paths:
+  - C:/Users/TD1321/Documents
+  - C:/Users/TD1321/Downloads
+
+network:
+  enabled: true
+  bpf_filter: ""
+  iface: ""
+
+thresholds:
+  cpu_percent_high: 95
+  mem_percent_high: 95
+  proc_spawn_rate_per_minute: 100
+  file_event_burst_per_minute: 1000
+  net_conn_burst_per_minute: 2000
+
+anomaly:
+  enable_isolation_forest: true
+  warmup_minutes: 5
+  contamination: 0.02
+
+alerting:
+  console: true
+  slack_webhook: ""
+  email:
+    enabled: false
+    smtp_host: smtp.gmail.com
+    smtp_port: 587
+    username: ""
+    password: ""
+    from_addr: "monitor@example.com"
+    to_addr: "you@example.com"
+
+genai:
+  enabled: false
+  provider: "openai"
+  model: "gpt-4o-mini"
+
+network_rules:
+  alert_icmp: true
+  alert_http: true
+  alert_https: false
+
+log_sources: []
