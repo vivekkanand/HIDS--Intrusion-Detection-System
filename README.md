@@ -1,4 +1,4 @@
-AI Sec Monitor - Standalone
+HIDS- Intrusion Detection System
 
 Run:
 python -m venv .venv
